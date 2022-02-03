@@ -1,62 +1,70 @@
-api_final
-api final yatube
+#  api final yatube
 
-Описание.
+## Описание
 Данный проект представляет собой API учебного проекта социальной сети Yatube. Здесь пользователи могут размещать свои публикации, создавать комментарии, подписываться на представляющих интерес авторов, либо отписываться при желании.
 
-Технологии
+## Технологии
 Pythoт, Django, DRF, JWT + Djoser
 
-Как запустить проект:
+## Установка
 
-Клонировать репозиторий и перейти в него в командной строке:
+* Клонировать репозиторий
 
-```
-git clone https://github.com/mariao-max/api_final_yatube
-```
+ > git clone https://github.com/mariao-max/api_final_yatube <br/>
 
-```
-cd yatube_api
-```
+* Перейти в директорию проекта
 
-Cоздать и активировать виртуальное окружение:
+> cd yatube_api 
 
-```
-python -m venv env
-```
+* Cоздать и активировать виртуальное окружение:
 
-```
-source venv/Scripts/activate
-```
+> python -m venv env
 
-Установить зависимости из файла requirements.txt:
+> source venv/Scripts/activate
 
-```
-python -m pip install --upgrade pip
-```
+* Установить зависимости из файла requirements.txt:
 
-```
-pip install -r requirements.txt
-```
+> python -m pip install --upgrade pip
 
-Выполнить миграции:
+> pip install -r requirements.txt
 
-```
-python manage.py migrate
+* Выполнить миграции:
 
-```
+> python manage.py migrate
 
-Создаем суперпользователя:
+* Создать суперпользователя:
 
+> python manage.py createsuperuser
 
-```
-$ python manage.py createsuperuser
-```
+* Запустить проект:
 
-Запустить проект:
+> python manage.py runserver
 
-```
-python manage.py runserver
-```
+## Примеры запросов и ответов
+* Пример GET-запроса <br/>
+http://127.0.0.1:8000/api/v1/posts/
+* Ответ на GET-запрос <br/>
+{ <br/>
+        "id": 2, <br/>
+        "author": "odrin", <br/>
+        "text": "Мы только оттого мучаемся прошедшим и портим себе будущее, что мало заняты настоящим. Прошедшее было, будущего нет, есть только одно настоящее.", <br/>
+        "pub_date": "2022-02-02T09:01:46.789732Z", <br/>
+        "image": null, <br/>
+        "group": 2 <br/>
+ } <br/>
 
-
+* Пример POST-запроса для авторизованного пользователя (с использванием токена) <br/>
+http://127.0.0.1:8000/api/v1/posts/ <br/>
+Authorization: Bearer Токен <br/>
+{ <br/>
+    "text": "Пример POST запроса" <br/>
+} <br/>
+* Ответ на POST-запрос: <br/>
+{ <br/>
+    "id": 3, <br/>
+    "author": "odrin", <br/>
+    "text": "Пример POST запроса", <br/>
+    "pub_date": "2022-02-03T12:04:13.417756Z", <br/>
+    "image": null, <br/>
+    "group": null <br/>
+} <br/>
