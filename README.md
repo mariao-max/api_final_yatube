@@ -67,4 +67,8 @@ Authorization: Bearer Токен <br/>
     "pub_date": "2022-02-03T12:04:13.417756Z", <br/>
     "image": null, <br/>
     "group": null <br/>
+<<<<<<< HEAD
 } <br/>
+=======
+} <br/>
+>>>>>>> 0dafe261ab2288fc13d069e95a18e7f7c5b23b91
